@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<nav><a href="/dashboard?id={{ session['user_id'] }}">Back to Dashboard</a></nav>
+
+<h2>Public Feedback Feed</h2>
+
+<form method="POST">
+    <textarea name="comment_text" placeholder="Write a comment..." style="width:100%; height: 60px;"></textarea><br><br>
+    <button type="submit" style="padding: 5px 15px;">Post Comment</button>
+</form>
+
+<hr>
+
+<h3>All Postings</h3>
+{% for comment in comments %}
+    <div style="border-bottom: 1px solid #ccc; padding: 10px 0;">
+        <strong>{{ comment['author'] }}</strong>: 
+        {{ comment['text'] }} 
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Range Bank</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; }
+        .security-banner { background-color: #222; color: #fff; padding: 10px; text-align: center; }
+        .btn-toggle { background-color: #e74c3c; color: white; border: none; padding: 5px 15px; cursor: pointer; font-weight: bold; }
+        .btn-toggle.secure { background-color: #2ecc71; }
+        .container { width: 50%; margin: 30px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        nav { margin-bottom: 20px; }
+        nav a { margin-right: 15px; text-decoration: none; color: #3498db; }
+    </style>
+</head>
+<body>
+
+    <div class="security-banner">
+        <span>Security Mode: 
+            <strong>{% if security_mode %}🔒 SECURE ACTIVE{% else %}🔓 VULNERABLE INACTIVE{% endif %}</strong>
+        </span>
+        <form action="/toggle-security" method="POST" style="display: inline; margin-left: 15px;">
+            <button type="submit" class="btn-toggle {% if security_mode %}secure{% endif %}">
+                Toggle Mode
+            </button>
+        </form>
+    </div>
+
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+
+</body>
+</html>

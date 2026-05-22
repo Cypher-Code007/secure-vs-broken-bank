@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>🏦 Secure vs. Broken Bank Login</h2>
+<p style="color: gray; font-size: 0.9em;">Try injecting <code>' OR '1'='1</code> when security is disabled!</p>
+<form method="POST">
+    <label>Username:</label><br>
+    <input type="text" name="username" required style="width: 100%; padding: 8px; margin: 8px 0;"><br>
+    <label>Password:</label><br>
+    <input type="password" name="password" style="width: 100%; padding: 8px; margin: 8px 0;"><br><br>
+    <button type="submit" style="padding: 10px 20px; background-color: #34495e; color: white; border: none; cursor: pointer;">Login</button>
+</form>
+{% endblock %}
